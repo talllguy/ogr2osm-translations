@@ -11,7 +11,7 @@ def filterTags(attrs):
     if 'FEATURE_TY' in attrs:
         tags['building'] = attrs['FEATURE_TYPE']
     if 'BUILDING' in attrs:
-        tags['building'] = attrs['FEATURE_TYPE']
+        tags['building'] = attrs['BUILDING']
     if 'ADDR_HOUSE' in attrs:
         tags['addr:housenumber'] = attrs['ADDR_HOUSENUMBER']
     if 'ADDR_STREE' in attrs:
