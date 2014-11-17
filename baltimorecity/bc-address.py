@@ -1,3 +1,13 @@
+#################################
+#
+# Baltimore city address translation
+# 17 Nov 2014
+# by @talllguy
+# parts adapted from @pnorman's surreyroad.py translation
+# https://github.com/pnorman/ogr2osm-translations/blob/master/surreyroad.py
+#
+#################################
+
 def translateType(stType):
     suffixlookup = {}
 
