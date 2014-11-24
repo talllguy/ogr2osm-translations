@@ -55,8 +55,8 @@ def translateType(stType):
 
 def caseStreetName(stName):
 
-    str_ = stName
-    stNameCased = ' '.join([i.title() if i.isalpha() else i.lower() for i in str_.split()])
+    address = stName
+    stNameCased = ' '.join([word.capitalize() for word in address.split()])
 
     return stNameCased
 
