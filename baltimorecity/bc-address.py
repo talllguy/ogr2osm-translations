@@ -53,6 +53,12 @@ def translateType(stType):
 
     return stTypeExpanded
 
+def caseStreetName(stName):
+
+    str_ = stName
+    stNameCased = ' '.join([i.title() if i.isalpha() else i.lower() for i in str_.split()])
+
+    return stNameCased
 
 def translateDirection(dirAbbr):
     suffixlookup = {}
@@ -76,21 +82,24 @@ def filterTags(attrs):
     tags = {}
 
     #automagically convert names
+    x = ''
+    y = ''
 
     if attrs['ST_NAME']:
         tags.update({'addr:street':' '.join([x for x in (
-            translateDirection(attrs['ST_DIR'].strip()),
-            attrs['ST_NAME'].strip().title(),
-            translateType(attrs['ST_TYPE'])) if x])
-            })
+            translateDirection(attrs['ST_DIR']),
+            caseStreetName(attrs['ST_NAME']),
+            translateType(attrs['ST_TYPE'])
+            ) if x])
+        })
         tags.update({'addr:city':'Baltimore'})
         tags.update({'addr:state':'MD'})
         tags.update({'addr:country':'US'})
 
     if attrs['ADDR_NUMBE'] != '0':
-       tags.update({'addr:housenumber':' '.join([x for x in (
+       tags.update({'addr:housenumber':' '.join([y for y in (
             attrs['ADDR_NUMBE'],
-            attrs['ADDR_FRAC']) if x])
+            attrs['ADDR_FRAC']) if y])
             })
 
     if attrs['ZIP_CODE']:
